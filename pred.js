@@ -1,1 +1,171 @@
-function livebutt(e){if(v=e.replace("_22",""),id=e.replace("_tips_22","").replace("_stream_22","").replace("_facts_22","").replace("_score_22","").replace("_preview_22",""),!document.getElementById(v).classList.contains("active")){try{document.getElementById(id+"_tips_22").classList.remove("selected")}catch(e){}try{document.getElementById(id+"_facts_22").classList.remove("selected")}catch(e){}try{document.getElementById(id+"_stream_22").classList.remove("selected")}catch(e){}try{document.getElementById(id+"_score_22").classList.remove("selected")}catch(e){}try{document.getElementById(id+"_preview_22").classList.remove("selected")}catch(e){}document.getElementById(id+"_tips").classList.remove("show"),document.getElementById(id+"_facts").classList.remove("show"),document.getElementById(id+"_stream").classList.remove("show");try{document.getElementById(id+"_score").classList.remove("show")}catch(e){}document.getElementById(id+"_preview").classList.remove("show"),document.getElementById(e).classList.add("selected"),document.getElementById(v).classList.add("show")}}function time_update(){var e=document.querySelectorAll("[id^=livegame]");[].forEach.call(e,function(e){var t=e.id.split("||")[1],n=e.id.split("||")[3],l=new Date;let c=new Date(0);c.setUTCSeconds(n);var s=Math.floor((l.getTime()-c.getTime())/1e3/60);if(s<0)document.getElementById(t+"-timer").innerHTML="starting";else if(s>46&&s<60)document.getElementById(t+"-timer").innerHTML="HT";else if(s>108)try{document.querySelectorAll('[id^="livegame||'+t+'"]')[0].style.display="none"}catch(e){}else document.getElementById(t+"-timer").innerHTML=s>106?"ending":s<46?s+"'":s>60?s-15+"'":s+"'"})}function returnscore(e,t){try{if(e.indexOf(",")>-1){var n=parseInt(e.split(",")[0].split("-")[0]),l=parseInt(e.split(",")[0].split("-")[1]),c=n+parseInt(e.split(",")[1].split("-")[0])+"-"+(l+parseInt(e.split(",")[1].split("-")[1]));e.split(",")[0];document.getElementById(t+"-ftscore1").innerHTML=c.split("-")[0],document.getElementById(t+"-ftscore2").innerHTML=c.split("-")[1]}else document.getElementById(t+"-ftscore1").innerHTML=e.split("-")[0],document.getElementById(t+"-ftscore2").innerHTML=e.split("-")[1]}catch(e){return""}}function updatebets(e,t){try{document.getElementById(t+"-BHP").innerHTML=e.Bet_H.split("||")[1]}catch(e){}try{document.getElementById(t+"-BHO").innerHTML=e.Bet_H.split("||")[0]}catch(e){}try{document.getElementById(t+"-BAP").innerHTML=e.Bet_A.split("||")[1]}catch(e){}try{document.getElementById(t+"-BAO").innerHTML=e.Bet_A.split("||")[0]}catch(e){}try{document.getElementById(t+"-BDP").innerHTML=e.Bet_D.split("||")[1]}catch(e){}try{document.getElementById(t+"-BDO").innerHTML=e.Bet_D.split("||")[0]}catch(e){}try{document.getElementById(t+"-BHDP").innerHTML=e.Bet_HD.split("||")[1]}catch(e){}try{document.getElementById(t+"-BHDO").innerHTML=e.Bet_HD.split("||")[0]}catch(e){}try{document.getElementById(t+"-BADP").innerHTML=e.Bet_AD.split("||")[1]}catch(e){}try{document.getElementById(t+"-BADO").innerHTML=e.Bet_AD.split("||")[0]}catch(e){}try{document.getElementById(t+"-BHAP").innerHTML=e.Bet_HA.split("||")[1]}catch(e){}try{document.getElementById(t+"-BHAO").innerHTML=e.Bet_HA.split("||")[0]}catch(e){}try{document.getElementById(t+"-BO1P").innerHTML=e.Bet_O15.split("||")[1]}catch(e){}try{document.getElementById(t+"-BO1O").innerHTML=e.Bet_O15.split("||")[0]}catch(e){}try{document.getElementById(t+"-BU1P").innerHTML=e.Bet_U15.split("||")[1]}catch(e){}try{document.getElementById(t+"-BU1O").innerHTML=e.Bet_U15.split("||")[0]}catch(e){}try{document.getElementById(t+"-BO2P").innerHTML=e.Bet_O25.split("||")[1]}catch(e){}try{document.getElementById(t+"-BO2O").innerHTML=e.Bet_O25.split("||")[0]}catch(e){}try{document.getElementById(t+"-BU2P").innerHTML=e.Bet_U25.split("||")[1]}catch(e){}try{document.getElementById(t+"-BU2O").innerHTML=e.Bet_U25.split("||")[0]}catch(e){}try{document.getElementById(t+"-BO3P").innerHTML=e.Bet_O35.split("||")[1]}catch(e){}try{document.getElementById(t+"-BO3O").innerHTML=e.Bet_O35.split("||")[0]}catch(e){}try{document.getElementById(t+"-BU3P").innerHTML=e.Bet_U35.split("||")[1]}catch(e){}try{document.getElementById(t+"-BU3O").innerHTML=e.Bet_U35.split("||")[0]}catch(e){}var n=document.querySelectorAll("[id^="+t+"-B]");[].forEach.call(n,function(e){document.getElementById(e.id).classList.remove("bg-warning")});try{let n=[];null!=e.Bet_H&&n.push(e.Bet_H.split("||")[0]),null!=e.Bet_A&&n.push(e.Bet_A.split("||")[0]),null!=e.Bet_D&&n.push(e.Bet_D.split("||")[0]);const l=Math.min(...n);null!=e.Bet_H&&l==e.Bet_H.split("||")[0]?document.getElementById(t+"-BH").classList.add("bg-warning"):null!=e.Bet_A&&l==e.Bet_A.split("||")[0]?document.getElementById(t+"-BA").classList.add("bg-warning"):null!=e.Bet_D&&l==e.Bet_D.split("||")[0]&&document.getElementById(t+"-BD").classList.add("bg-warning")}catch(e){}try{let n=[];null!=e.Bet_HD&&n.push(e.Bet_HD.split("||")[0]),null!=e.Bet_AD&&n.push(e.Bet_AD.split("||")[0]),null!=e.Bet_HA&&n.push(e.Bet_HA.split("||")[0]);const l=Math.min(...n);null!=e.Bet_HD&&l==e.Bet_HD.split("||")[0]?document.getElementById(t+"-BHD").classList.add("bg-warning"):null!=e.Bet_AD&&l==e.Bet_AD.split("||")[0]?document.getElementById(t+"-BAD").classList.add("bg-warning"):null!=e.Bet_HA&&l==e.Bet_HA.split("||")[0]&&document.getElementById(t+"-BHA").classList.add("bg-warning")}catch(e){}try{let n=[];null!=e.Bet_O&&n.push(e.Bet_O.split("||")[0]),null!=e.Bet_U&&n.push(e.Bet_U.split("||")[0]);const l=Math.min(...n);null!=e.Bet_O&&l==e.Bet_O.split("||")[0]?document.getElementById(t+"-BO1").classList.add("bg-warning"):null!=e.Bet_U&&l==e.Bet_U.split("||")[0]&&document.getElementById(t+"-BU1").classList.add("bg-warning")}catch(e){}}function score_update(){var e=new Date,t=e.getDate();1==t.toString().length&&(t="0"+t);var n=e.getMonth()+1;1==n.toString().length&&(n="0"+n);var l=e.getFullYear();firebase.database().ref("Live_preds/"+l+"-"+n+"-"+t+"/").on("child_changed",e=>{const t=e.val();returnscore(t.score,t.ID),updatebets(t,t.ID)})}setTimeout(score_update,1e3),setInterval(time_update,1e3);
+ // https://cdn.jsdelivr.net/gh/bajgik/feed_pred@main/pred.js
+// https://github.com/bajgik/feed_pred/blob/main/pred.js
+// https://purge.jsdelivr.net/gh/bajgik/feed_pred@main/pred.js 
+
+
+
+function livebutt(org_id){
+	v = org_id.replace('_22', '');
+	id = org_id.replace('_tips_22', '').replace('_stream_22', '').replace('_facts_22', '').replace('_score_22', '').replace('_preview_22', '');
+	if (!document.getElementById(v).classList.contains('active')) {
+		
+    try{document.getElementById(id+'_tips_22').classList.remove('selected');}catch(err){}
+    try{document.getElementById(id+'_facts_22').classList.remove('selected');}catch(err){}
+    try{document.getElementById(id+'_stream_22').classList.remove('selected');}catch(err){}
+    try{document.getElementById(id+'_score_22').classList.remove('selected');}catch(err){}
+    try{document.getElementById(id+'_preview_22').classList.remove('selected');}catch(err){}
+    document.getElementById(id+'_tips').classList.remove('show');
+    document.getElementById(id+'_facts').classList.remove('show');
+    document.getElementById(id+'_stream').classList.remove('show');
+    try{document.getElementById(id+'_score').classList.remove('show');}catch(err){}
+    document.getElementById(id+'_preview').classList.remove('show');
+
+    document.getElementById(org_id).classList.add('selected');
+    document.getElementById(v).classList.add('show');
+	}
+}
+  setTimeout(score_update, 10000);   //update scroe
+  setInterval(time_update, 1000);   //update timers
+  
+  function  time_update(){
+    var divs = document.querySelectorAll('[id^=livegame]');
+    [].forEach.call(divs, function(div) {
+      var id =  div.id.split('||')[1];
+      var Time =  div.id.split('||')[3];
+
+      var now = new Date();
+      let start = new Date(0); 
+      start.setUTCSeconds(Time);
+
+      var minutes = Math.floor(((now.getTime() - start.getTime()) / 1000 / 60));  
+      
+      if(minutes < 0){
+      document.getElementById(id+'-timer').innerHTML = 'starting';
+      } else if(minutes > 46 && minutes < 60){
+        document.getElementById(id+'-timer').innerHTML = 'HT';
+      }  else if(minutes > 108){
+      try{document.querySelectorAll('[id^="livegame||'+id+'"]')[0].style.display = "none";}catch(err){}
+      }else if(minutes > 106){
+        document.getElementById(id+'-timer').innerHTML = 'ending';
+      }  else if(minutes < 46){
+        document.getElementById(id+'-timer').innerHTML = minutes + '\'';
+      } else if(minutes > 60){
+        document.getElementById(id+'-timer').innerHTML = minutes - 15 + '\'';
+      }  else{
+        document.getElementById(id+'-timer').innerHTML = minutes + '\'';
+      }
+
+    });
+  }
+
+  function returnscore(score,id) {
+    try{
+       if(score.indexOf(',') > -1){
+        var ht_h = parseInt(score.split(',')[0].split('-')[0]);
+          var ht_a = parseInt(score.split(',')[0].split('-')[1]);
+          var ft_h = parseInt(score.split(',')[1].split('-')[0]);
+          var ft_a = parseInt(score.split(',')[1].split('-')[1]);
+
+          var second = (ht_h + ft_h) + '-' + (ht_a + ft_a);
+
+          var first = score.split(',')[0];
+          //document.getElementById(id+'-htscore').innerHTML = '('+first+')';
+          document.getElementById(id+'-ftscore1').innerHTML = second.split('-')[0];
+          document.getElementById(id+'-ftscore2').innerHTML = second.split('-')[1];
+       } else{
+          document.getElementById(id+'-ftscore1').innerHTML = score.split('-')[0];
+          document.getElementById(id+'-ftscore2').innerHTML = score.split('-')[1];
+       }
+      }catch (err) {return ''; }
+  }
+  function updatebets(data,id) {
+      try{ document.getElementById(id+'-BHP').innerHTML = data.Bet_H.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BHO').innerHTML = data.Bet_H.split('||')[0]; }catch (err) { }
+      try{ document.getElementById(id+'-BAP').innerHTML = data.Bet_A.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BAO').innerHTML = data.Bet_A.split('||')[0]; }catch (err) { }
+      try{ document.getElementById(id+'-BDP').innerHTML = data.Bet_D.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BDO').innerHTML = data.Bet_D.split('||')[0]; }catch (err) { }
+
+      try{ document.getElementById(id+'-BHDP').innerHTML = data.Bet_HD.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BHDO').innerHTML = data.Bet_HD.split('||')[0]; }catch (err) { }
+      try{ document.getElementById(id+'-BADP').innerHTML = data.Bet_AD.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BADO').innerHTML = data.Bet_AD.split('||')[0]; }catch (err) { }
+      try{ document.getElementById(id+'-BHAP').innerHTML = data.Bet_HA.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BHAO').innerHTML = data.Bet_HA.split('||')[0]; }catch (err) { }
+
+      try{ document.getElementById(id+'-BO1P').innerHTML = data.Bet_O15.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BO1O').innerHTML = data.Bet_O15.split('||')[0]; }catch (err) { }
+      try{ document.getElementById(id+'-BU1P').innerHTML = data.Bet_U15.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BU1O').innerHTML = data.Bet_U15.split('||')[0]; }catch (err) { }
+
+      try{ document.getElementById(id+'-BO2P').innerHTML = data.Bet_O25.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BO2O').innerHTML = data.Bet_O25.split('||')[0]; }catch (err) { }
+      try{ document.getElementById(id+'-BU2P').innerHTML = data.Bet_U25.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BU2O').innerHTML = data.Bet_U25.split('||')[0]; }catch (err) { }
+
+      try{ document.getElementById(id+'-BO3P').innerHTML = data.Bet_O35.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BO3O').innerHTML = data.Bet_O35.split('||')[0]; }catch (err) { }
+      try{ document.getElementById(id+'-BU3P').innerHTML = data.Bet_U35.split('||')[1]; }catch (err) { }
+      try{ document.getElementById(id+'-BU3O').innerHTML = data.Bet_U35.split('||')[0]; }catch (err) { }
+    
+      var divs = document.querySelectorAll('[id^='+id+'-B]');
+          [].forEach.call(divs, function(div) {
+            document.getElementById(div.id).classList.remove('bg-warning');
+          });
+
+      try{     
+        let fullarr = [];
+          if(data.Bet_H != undefined){fullarr.push(data.Bet_H.split('||')[0])}
+          if(data.Bet_A != undefined){fullarr.push(data.Bet_A.split('||')[0])}
+          if(data.Bet_D != undefined){fullarr.push(data.Bet_D.split('||')[0])}
+        const min_full = Math.min(...fullarr);
+        if(data.Bet_H != undefined &&  min_full == data.Bet_H.split('||')[0]){
+          document.getElementById(id+'-BH').classList.add('bg-warning');
+        } else if(data.Bet_A != undefined &&  min_full == data.Bet_A.split('||')[0]){
+          document.getElementById(id+'-BA').classList.add('bg-warning');
+        } else if(data.Bet_D != undefined &&  min_full == data.Bet_D.split('||')[0]){
+          document.getElementById(id+'-BD').classList.add('bg-warning');
+        }
+      }catch(err){}
+      try{      
+        let fullarr = [];
+          if(data.Bet_HD != undefined){fullarr.push(data.Bet_HD.split('||')[0])}
+          if(data.Bet_AD != undefined){fullarr.push(data.Bet_AD.split('||')[0])}
+          if(data.Bet_HA != undefined){fullarr.push(data.Bet_HA.split('||')[0])}
+        const min_full = Math.min(...fullarr);
+        if(data.Bet_HD != undefined && min_full == data.Bet_HD.split('||')[0]){
+          document.getElementById(id+'-BHD').classList.add('bg-warning');
+        } else if(data.Bet_AD != undefined && min_full == data.Bet_AD.split('||')[0]){
+          document.getElementById(id+'-BAD').classList.add('bg-warning');
+        } else if(data.Bet_HA != undefined && min_full == data.Bet_HA.split('||')[0]){
+          document.getElementById(id+'-BHA').classList.add('bg-warning');
+        }
+      }catch(err){}
+      
+      try{      
+        let fullarr = [];
+          if(data.Bet_O != undefined){fullarr.push(data.Bet_O.split('||')[0])}
+          if(data.Bet_U != undefined){fullarr.push(data.Bet_U.split('||')[0])}
+        const min_full = Math.min(...fullarr);
+        if(data.Bet_O != undefined && min_full == data.Bet_O.split('||')[0]){
+          document.getElementById(id+'-BO1').classList.add('bg-warning');
+        } else if(data.Bet_U != undefined && min_full == data.Bet_U.split('||')[0]){
+          document.getElementById(id+'-BU1').classList.add('bg-warning');
+        }
+      }catch(err){}
+     
+  }
+
+  function score_update() {
+    var now = new Date();
+    var dd = now.getDate();
+    if(dd.toString().length ==1){dd = '0'+dd; }
+    var mm = now.getMonth()+1;
+    if(mm.toString().length ==1){mm = '0'+mm; }
+    var yyyy = now.getFullYear();
+    firebase.database().ref('Live_preds/'+yyyy+'-'+mm+'-'+dd+'/').on('child_changed', (snapshot) => {
+       const data = snapshot.val();
+       returnscore(data.score,data.ID);
+       updatebets(data,data.ID);
+    });
+  }
